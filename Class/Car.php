@@ -19,17 +19,30 @@ class Car extends Vehicle
      */
     private $energyLevel;
 
+    /**
+     * Car constructor.
+     * @param string $color
+     * @param int $nbSeats
+     * @param string $energy
+     */
     public function __construct(string $color, int $nbSeats, string $energy)
     {
         parent::__construct($color, $nbSeats);
         $this->setEnergy($energy);
     }
 
+    /**
+     * @return string
+     */
     public function getEnergy(): string
     {
         return $this->energy;
     }
 
+    /**
+     * @param string $energy
+     * @return Car
+     */
     public function setEnergy(string $energy): Car
     {
         if (in_array($energy, self::ALLOWED_ENERGIES)) {
@@ -38,12 +51,18 @@ class Car extends Vehicle
         return $this;
     }
 
+    /**
+     * @return int
+     */
     public function getEnergyLevel(): int
     {
         return $this->energyLevel;
     }
 
-    public function setEnergyLevel(int $energyLevel): void
+    /**
+     * @param int $energyLevel
+     */
+    public function setEnergyLevel(int $energyLevel)
     {
         $this->energyLevel = $energyLevel;
     }
